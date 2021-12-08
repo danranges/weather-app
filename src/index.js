@@ -8,22 +8,22 @@ const fetchCurWeather = async (location) => {
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`,
       {
         mode: 'cors',
-      }
+      },
     );
     const data = await response.json();
-    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(error);
   }
 };
 
-const fetchForecast = async (location) => {
+const fetchForecast = async (lat, lon) => {
   try {
     const response = await fetch(
-      `https://pro.openweathermap.org/data/2.5/forecast/hourly?q=${location}&cnt=3&appid=${API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&appid=${API_KEY}`,
       {
         mode: 'cors',
-      }
+      },
     );
     const data = await response.json();
     console.log(data);
@@ -33,3 +33,4 @@ const fetchForecast = async (location) => {
 };
 
 fetchCurWeather('stavanger');
+fetchForecast(33.44, -94.04);
