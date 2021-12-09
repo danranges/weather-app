@@ -1,5 +1,23 @@
 import './style.css';
 
+const renderSearch = () => {
+  const searchBar = document.createElement('header');
+
+  const searchInput = document.createElement('input');
+  searchInput.setAttribute('type', 'text');
+
+  const btnSubmit = document.createElement('button');
+  btnSubmit.textContent = 'Search';
+
+  document.body.appendChild(searchBar);
+  searchBar.appendChild(searchInput);
+  searchBar.appendChild(btnSubmit);
+
+  btnSubmit.addEventListener('click', () => {
+    fetchCurWeather(searchInput.value);
+  });
+};
+
 const API_KEY = '0c871be1d393945eadd0ed45501fd080';
 
 const fetchCurWeather = async (location) => {
@@ -11,6 +29,7 @@ const fetchCurWeather = async (location) => {
       },
     );
     const data = await response.json();
+    console.log(data);
     return data;
   } catch (error) {
     throw new Error(error);
@@ -32,5 +51,4 @@ const fetchForecast = async (lat, lon) => {
   }
 };
 
-fetchCurWeather('stavanger');
-fetchForecast(33.44, -94.04);
+renderSearch();
