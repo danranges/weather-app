@@ -1,23 +1,5 @@
 import './style.css';
 
-const renderSearch = () => {
-  const searchBar = document.createElement('header');
-
-  const searchInput = document.createElement('input');
-  searchInput.setAttribute('type', 'text');
-
-  const btnSubmit = document.createElement('button');
-  btnSubmit.textContent = 'Search';
-
-  document.body.appendChild(searchBar);
-  searchBar.appendChild(searchInput);
-  searchBar.appendChild(btnSubmit);
-
-  btnSubmit.addEventListener('click', () => {
-    fetchCurWeather(searchInput.value);
-  });
-};
-
 const API_KEY = '0c871be1d393945eadd0ed45501fd080';
 
 const fetchCurWeather = async (location) => {
@@ -29,7 +11,6 @@ const fetchCurWeather = async (location) => {
       },
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     throw new Error(error);
@@ -45,10 +26,40 @@ const fetchForecast = async (lat, lon) => {
       },
     );
     const data = await response.json();
-    console.log(data);
+    return data;
   } catch (error) {
     throw new Error(error);
   }
+};
+
+const fetchWeather = async (location) => {
+  const current = await fetchCurWeather(location);
+
+  const { coord } = current;
+
+  const forecast = await fetchForecast(coord.lat, coord.lon);
+
+  const weather = { current, forecast };
+
+  return weather;
+};
+
+const renderSearch = () => {
+  const searchBar = document.createElement('header');
+
+  const searchInput = document.createElement('input');
+  searchInput.setAttribute('type', 'text');
+
+  const btnSubmit = document.createElement('button');
+  btnSubmit.textContent = 'Search';
+
+  document.body.appendChild(searchBar);
+  searchBar.appendChild(searchInput);
+  searchBar.appendChild(btnSubmit);
+
+  btnSubmit.addEventListener('click', () => {
+    fetchWeather(searchInput.value);
+  });
 };
 
 renderSearch();
