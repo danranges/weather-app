@@ -1,4 +1,5 @@
 import Data from './Data';
+import CurrentWeather from './components/CurrentWeather';
 
 export default class UI {
   static renderSearch() {
@@ -10,12 +11,21 @@ export default class UI {
     const btnSubmit = document.createElement('button');
     btnSubmit.textContent = 'Search';
 
-    document.body.appendChild(searchBar);
     searchBar.appendChild(searchInput);
     searchBar.appendChild(btnSubmit);
 
     btnSubmit.addEventListener('click', async () => {
-      console.log(await Data.fetchWeather(searchInput.value));
+      await Data.fetchWeather(searchInput.value);
     });
+
+    return searchBar;
+  }
+
+  static async render(location = 'stavanger') {
+    const weather = await Data.fetchWeather(location);
+    console.log(weather);
+
+    document.body.appendChild(UI.renderSearch());
+    document.body.appendChild(CurrentWeather(weather));
   }
 }

@@ -32,13 +32,14 @@ export default class Data {
   }
 
   static async fetchWeather(location) {
-    const current = await Data.fetchCurWeather(location);
-
-    const { coord } = current;
-
-    const forecast = await Data.fetchForecast(coord.lat, coord.lon);
-
-    const weather = { current, forecast };
-    return weather;
+    try {
+      const current = await Data.fetchCurWeather(location);
+      const { coord } = current;
+      const forecast = await Data.fetchForecast(coord.lat, coord.lon);
+      const weather = { current, forecast };
+      return weather;
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 }

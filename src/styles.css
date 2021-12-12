@@ -1,0 +1,11 @@
+.flex {
+  display: flex;
+}
+
+.icon-current {
+  height: 8rem;
+}
+
+.condition {
+  text-transform: capitalize;
+}
