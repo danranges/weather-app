@@ -4,7 +4,7 @@ export default class Data {
   static async fetchCurWeather(location) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`,
         {
           mode: 'cors',
         },
@@ -19,7 +19,7 @@ export default class Data {
   static async fetchForecast(lat, lon) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&appid=${API_KEY}`,
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&appid=${API_KEY}&units=metric`,
         {
           mode: 'cors',
         },

@@ -1,11 +1,11 @@
 const CurrentWeather = (weather) => {
-  const tempCurrent = weather.current.main.temp;
-  const tempMax = weather.current.main.temp_max;
-  const tempMin = weather.current.main.temp_min;
+  const tempCurrent = Math.round(weather.main.temp);
+  const tempMax = Math.round(weather.main.temp_max);
+  const tempMin = Math.round(weather.main.temp_min);
 
   const currentWeather = document.createElement('div');
   const location = document.createElement('h1');
-  location.textContent = weather.current.name;
+  location.textContent = weather.name;
 
   const temperature = document.createElement('p');
   temperature.classList.add('current-temp');
@@ -13,7 +13,7 @@ const CurrentWeather = (weather) => {
 
   const condition = document.createElement('p');
   condition.classList.add('condition');
-  condition.textContent = weather.current.weather[0].description;
+  condition.textContent = weather.weather[0].description;
 
   const hiLoWrapper = document.createElement('div');
   hiLoWrapper.classList.add('flex');

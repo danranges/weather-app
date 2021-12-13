@@ -2,7 +2,7 @@ import Data from './Data';
 import CurrentWeather from './components/CurrentWeather';
 
 export default class UI {
-  static renderSearch() {
+  static createHeader() {
     const searchBar = document.createElement('header');
 
     const searchInput = document.createElement('input');
@@ -15,7 +15,7 @@ export default class UI {
     searchBar.appendChild(btnSubmit);
 
     btnSubmit.addEventListener('click', async () => {
-      await Data.fetchWeather(searchInput.value);
+      await UI.render(searchInput.value);
     });
 
     return searchBar;
@@ -23,9 +23,8 @@ export default class UI {
 
   static async render(location = 'stavanger') {
     const weather = await Data.fetchWeather(location);
-    console.log(weather);
-
-    document.body.appendChild(UI.renderSearch());
-    document.body.appendChild(CurrentWeather(weather));
+    document.body.innerHTML = '';
+    document.body.appendChild(UI.createHeader());
+    document.body.appendChild(CurrentWeather(weather.current));
   }
 }
