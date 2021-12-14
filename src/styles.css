@@ -1,5 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  padding: 1rem;
+}
+
 .flex {
   display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.align-center {
+  align-items: center;
 }
 
 .icon-current {
@@ -8,4 +34,24 @@
 
 .condition {
   text-transform: capitalize;
+}
+
+.wrapper {
+  gap: 0.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+h1,
+.condition,
+.temps,
+.current-temp {
+  font-family: 'Roboto', sans-serif;
+}
+
+.current-temp {
+  font-size: 5rem;
 }

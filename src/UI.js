@@ -21,10 +21,18 @@ export default class UI {
     return searchBar;
   }
 
-  static async render(location = 'stavanger') {
+  static async createBody(location = 'stavanger') {
     const weather = await Data.fetchWeather(location);
+    const content = document.createElement('div');
+    const curWeather = CurrentWeather(weather.current);
+    content.appendChild(curWeather);
+    return content;
+  }
+
+  static async render(location) {
+    const content = await UI.createBody(location).catch(alert);
     document.body.innerHTML = '';
     document.body.appendChild(UI.createHeader());
-    document.body.appendChild(CurrentWeather(weather.current));
+    document.body.appendChild(content);
   }
 }
