@@ -1,5 +1,6 @@
 import Data from './Data';
 import CurrentWeather from './components/CurrentWeather';
+import HourlyForecast from './components/HourlyForecast';
 import Storage from './Storage';
 
 export default class UI {
@@ -40,9 +41,12 @@ export default class UI {
   static async createBody() {
     const { location } = Storage.getSettings();
     const weather = await Data.fetchWeather(location);
+    console.log(weather);
     const content = document.createElement('div');
     const curWeather = CurrentWeather(weather.current);
+    const hourlyForecast = HourlyForecast(weather.forecast.hourly);
     content.appendChild(curWeather);
+    content.appendChild(hourlyForecast);
     return content;
   }
 
