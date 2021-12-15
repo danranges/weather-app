@@ -4,7 +4,10 @@ import Storage from './Storage';
 
 export default class UI {
   static createHeader() {
-    const searchBar = document.createElement('header');
+    const header = document.createElement('header');
+    header.classList.add('flex');
+
+    const searchBar = document.createElement('div');
 
     const searchInput = document.createElement('input');
     searchInput.setAttribute('type', 'text');
@@ -12,15 +15,26 @@ export default class UI {
     const btnSubmit = document.createElement('button');
     btnSubmit.textContent = 'Search';
 
+    const btnUnits = document.createElement('button');
+    btnUnits.textContent = 'Units';
+
     searchBar.appendChild(searchInput);
     searchBar.appendChild(btnSubmit);
+
+    header.appendChild(searchBar);
+    header.appendChild(btnUnits);
 
     btnSubmit.addEventListener('click', async () => {
       Storage.setLocation(searchInput.value);
       await UI.render();
     });
 
-    return searchBar;
+    btnUnits.addEventListener('click', async () => {
+      Storage.setMetric();
+      await UI.render();
+    });
+
+    return header;
   }
 
   static async createBody() {

@@ -1,18 +1,11 @@
 import Storage from '../Storage';
 
 const CurrentWeather = (weather) => {
-  const settings = Storage.getSettings();
-  const { units } = settings;
+  const { metric } = Storage.getSettings();
 
-  const tempCurrent = Math.round(
-    units === 'metric' ? weather.main.temp : weather.main.temp * 1.8 + 32,
-  );
-  const tempMax = Math.round(
-    units === 'metric' ? weather.main.temp_max : weather.main.temp_max * 1.8 + 32,
-  );
-  const tempMin = Math.round(
-    units === 'metric' ? weather.main.temp_min : weather.main.temp_min * 1.8 + 32,
-  );
+  const tempCurrent = Math.round(metric ? weather.main.temp : weather.main.temp * 1.8 + 32);
+  const tempMax = Math.round(metric ? weather.main.temp_max : weather.main.temp_max * 1.8 + 32);
+  const tempMin = Math.round(metric ? weather.main.temp_min : weather.main.temp_min * 1.8 + 32);
 
   const currentWeather = document.createElement('div');
   currentWeather.classList.add('flex', 'col', 'wrapper', 'align-center');

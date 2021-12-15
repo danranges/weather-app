@@ -23,6 +23,12 @@ export default class Storage {
   static setLocation(location) {
     const settings = Storage.getSettings();
     settings.setLocation(location);
-    this.setSettings(settings);
+    Storage.setSettings(settings);
+  }
+
+  static setMetric() {
+    const settings = Storage.getSettings();
+    settings.setMetric();
+    Storage.setSettings(settings);
   }
 }

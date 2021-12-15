@@ -1,7 +1,7 @@
 export default class Settings {
   constructor() {
     this.location = 'Stavanger';
-    this.units = 'metric';
+    this.metric = true;
   }
 
   getLocation() {
@@ -16,7 +16,7 @@ export default class Settings {
     return this.units;
   }
 
-  setUnits(newUnits) {
-    this.units = newUnits;
+  setMetric() {
+    this.metric = !this.metric;
   }
 }
