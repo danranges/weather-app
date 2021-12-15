@@ -1,5 +1,6 @@
 import Data from './Data';
 import CurrentWeather from './components/CurrentWeather';
+import Storage from './Storage';
 
 export default class UI {
   static createHeader() {
@@ -15,13 +16,15 @@ export default class UI {
     searchBar.appendChild(btnSubmit);
 
     btnSubmit.addEventListener('click', async () => {
-      await UI.render(searchInput.value);
+      Storage.setLocation(searchInput.value);
+      await UI.render();
     });
 
     return searchBar;
   }
 
-  static async createBody(location = 'stavanger') {
+  static async createBody() {
+    const { location } = Storage.getSettings();
     const weather = await Data.fetchWeather(location);
     const content = document.createElement('div');
     const curWeather = CurrentWeather(weather.current);
@@ -29,8 +32,8 @@ export default class UI {
     return content;
   }
 
-  static async render(location) {
-    const content = await UI.createBody(location).catch(alert);
+  static async render() {
+    const content = await UI.createBody().catch(alert);
     document.body.innerHTML = '';
     document.body.appendChild(UI.createHeader());
     document.body.appendChild(content);

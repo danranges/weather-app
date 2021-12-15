@@ -19,4 +19,10 @@ export default class Storage {
   static setSettings(settings) {
     localStorage.setItem('weatherSettings', JSON.stringify(settings));
   }
+
+  static setLocation(location) {
+    const settings = Storage.getSettings();
+    settings.setLocation(location);
+    this.setSettings(settings);
+  }
 }
