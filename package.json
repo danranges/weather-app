@@ -24,8 +24,13 @@
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
+    "prettier": "^2.5.1",
+    "prettier-airbnb-config": "^1.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "date-fns": "^2.27.0"
   }
 }

@@ -41,6 +41,10 @@ header {
   gap: 0.5rem;
 }
 
+.ht-1 {
+  height: 1rem;
+}
+
 h1 {
   font-size: 1.75rem;
   font-weight: 500;
@@ -49,10 +53,35 @@ h1 {
 h1,
 .condition,
 .temps,
-.current-temp {
+.current-temp,
+.hourly-container {
   font-family: 'Roboto', sans-serif;
+}
+
+.content,
+.hourly-container {
+  gap: 1rem;
 }
 
 .current-temp {
   font-size: 5rem;
+}
+
+.hourly-container {
+  overflow-x: scroll;
+}
+
+.hourly-icon {
+  height: 3rem;
+}
+
+body,
+.content {
+  width: min(100%, 800px);
+}
+
+.above {
+  max-width: 90%;
+  overflow-x: scroll;
+  align-items: center;
 }

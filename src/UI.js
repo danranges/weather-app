@@ -42,18 +42,21 @@ export default class UI {
     const { location } = Storage.getSettings();
     const weather = await Data.fetchWeather(location);
     console.log(weather);
-    const content = document.createElement('div');
+    const content = document.createElement('section');
+    const above = document.createElement('div');
+    content.classList.add('flex', 'col', 'content', 'align-center');
+    above.classList.add('flex', 'content', 'above');
     const curWeather = CurrentWeather(weather.current);
     const hourlyForecast = HourlyForecast(weather.forecast.hourly);
-    content.appendChild(curWeather);
-    content.appendChild(hourlyForecast);
+    above.appendChild(curWeather);
+    above.appendChild(hourlyForecast);
+    content.appendChild(above);
     return content;
   }
 
   static async render() {
-    const content = await UI.createBody().catch(alert);
     document.body.innerHTML = '';
     document.body.appendChild(UI.createHeader());
-    document.body.appendChild(content);
+    document.body.appendChild(await UI.createBody().catch(alert));
   }
 }
