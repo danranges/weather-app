@@ -4,7 +4,7 @@ import Storage from '../Storage';
 
 const singleHourForecast = (hour, i) => {
   const forecast = document.createElement('div');
-  forecast.classList.add('flex', 'col', 'align-center');
+  forecast.classList.add('flex', 'col', 'align-center', 'single-hour-wrapper');
 
   const { metric } = Storage.getSettings();
 

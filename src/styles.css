@@ -60,7 +60,7 @@ h1,
 
 .content,
 .hourly-container {
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .current-temp {
@@ -81,7 +81,12 @@ body,
 }
 
 .above {
-  max-width: 90%;
+  max-width: 85%;
+  gap: 5rem;
   overflow-x: scroll;
   align-items: center;
+}
+
+.single-hour-wrapper {
+  /* border: 1px solid red; */
 }

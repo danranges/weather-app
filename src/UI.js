@@ -5,6 +5,8 @@ import Storage from './Storage';
 
 export default class UI {
   static createHeader() {
+    const { metric } = Storage.getSettings();
+
     const header = document.createElement('header');
     header.classList.add('flex');
 
@@ -17,7 +19,7 @@ export default class UI {
     btnSubmit.textContent = 'Search';
 
     const btnUnits = document.createElement('button');
-    btnUnits.textContent = 'Units';
+    btnUnits.textContent = metric ? 'C°' : 'F°';
 
     searchBar.appendChild(searchInput);
     searchBar.appendChild(btnSubmit);
