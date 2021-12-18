@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { getHours, toDate } from 'date-fns';
 import Storage from '../Storage';
 
@@ -9,6 +10,7 @@ const singleHourForecast = (hour, i) => {
 
   const time = document.createElement('p');
   time.classList.add('bold');
+  // eslint-disable-next-line operator-linebreak
   time.textContent =
     i === 0
       ? 'Now'
