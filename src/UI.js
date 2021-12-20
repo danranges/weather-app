@@ -1,6 +1,7 @@
 import Data from './Data';
 import CurrentWeather from './components/CurrentWeather';
 import HourlyForecast from './components/HourlyForecast';
+import DailyForecast from './components/DailyForecast';
 import Storage from './Storage';
 
 export default class UI {
@@ -55,10 +56,12 @@ export default class UI {
 
     const curWeather = CurrentWeather(weather.current);
     const hourlyForecast = HourlyForecast(weather.forecast.hourly);
-    // const dailyForecast = DailyForecast(weather.forecast.daily);
+    const dailyForecast = DailyForecast(weather.forecast.daily);
     above.appendChild(curWeather);
     above.appendChild(hourlyForecast);
+    below.appendChild(dailyForecast);
     content.appendChild(above);
+    content.appendChild(below);
     return content;
   }
 
