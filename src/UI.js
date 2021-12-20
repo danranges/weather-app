@@ -45,11 +45,17 @@ export default class UI {
     const weather = await Data.fetchWeather(location);
     console.log(weather);
     const content = document.createElement('section');
-    const above = document.createElement('div');
     content.classList.add('flex', 'col', 'content', 'align-center');
+
+    const above = document.createElement('div');
     above.classList.add('flex', 'content', 'above');
+
+    const below = document.createElement('div');
+    below.classList.add('flex', 'content', 'below');
+
     const curWeather = CurrentWeather(weather.current);
     const hourlyForecast = HourlyForecast(weather.forecast.hourly);
+    // const dailyForecast = DailyForecast(weather.forecast.daily);
     above.appendChild(curWeather);
     above.appendChild(hourlyForecast);
     content.appendChild(above);
