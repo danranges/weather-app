@@ -54,7 +54,8 @@ h1,
 .condition,
 .temps,
 .current-temp,
-.hourly-container {
+.hourly-container,
+.daily-container {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -87,8 +88,16 @@ body,
   align-items: center;
 }
 
-.single-hour-wrapper {
-  flex-grow: 1;
-  width: 20%;
-  /* border: 1px solid red; */
+.below {
+  max-width: 100%;
+  justify-content: center;
+}
+
+.single-day-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.daily-container {
+  width: 80%;
 }
