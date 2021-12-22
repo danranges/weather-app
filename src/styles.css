@@ -69,7 +69,9 @@ h1,
 }
 
 .hourly-container {
+  width: 100%;
   overflow-x: scroll;
+  font-size: 0.9rem;
 }
 
 .hourly-icon {
@@ -83,14 +85,19 @@ body,
 
 .above {
   max-width: 85%;
-  gap: 5rem;
-  overflow-x: scroll;
+  gap: 2rem;
+  /* overflow-x: scroll; */
   align-items: center;
+  flex-direction: column;
 }
 
 .below {
   max-width: 100%;
   justify-content: center;
+}
+
+.single-hour-wrapper {
+  gap: 0.3rem;
 }
 
 .single-day-wrapper {
@@ -100,4 +107,11 @@ body,
 
 .daily-container {
   width: 80%;
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 450px) {
+  .above {
+    flex-direction: row;
+  }
 }
