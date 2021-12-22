@@ -1,5 +1,4 @@
 import { format, isToday, toDate } from 'date-fns';
-import { hi } from 'date-fns/locale';
 import Storage from '../Storage';
 
 const singleDayForecast = (day) => {

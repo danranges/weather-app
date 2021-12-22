@@ -19,7 +19,7 @@ const singleHourForecast = (hour, i) => {
           .padStart(2, 0);
 
   const precipitationChance = document.createElement('p');
-  precipitationChance.classList.add('bold', 'ht-1');
+  precipitationChance.classList.add('bold', 'ht-1', 'blue');
   precipitationChance.textContent = hour.pop === 0 ? '' : `${Math.round(hour.pop * 100)}%`;
 
   const weatherIcon = new Image();

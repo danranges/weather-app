@@ -9,8 +9,30 @@
 }
 
 header {
+  position: sticky;
+  top: 0;
   padding: 1rem;
   justify-content: space-between;
+  padding: 1rem 7.5%;
+  background-color: rgb(49, 49, 49);
+}
+
+.search-bar {
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.search-bar > button,
+.search-bar > input {
+  height: 2rem;
+  border: none;
+}
+
+header > button,
+.search-bar > button {
+  padding: 0 0.75rem;
+  font-weight: 500;
 }
 
 .flex {
@@ -43,6 +65,10 @@ header {
 
 .ht-1 {
   height: 1rem;
+}
+
+.blue {
+  color: rgb(17, 164, 255);
 }
 
 h1 {
@@ -86,6 +112,7 @@ body,
 .above {
   max-width: 85%;
   gap: 2rem;
+  padding-top: 2rem;
   /* overflow-x: scroll; */
   align-items: center;
   flex-direction: column;
@@ -97,7 +124,7 @@ body,
 }
 
 .single-hour-wrapper {
-  gap: 0.3rem;
+  gap: 1rem;
 }
 
 .single-day-wrapper {
@@ -113,5 +140,10 @@ body,
 @media screen and (min-width: 450px) {
   .above {
     flex-direction: row;
+  }
+
+  .daily-container,
+  .hourly-container {
+    font-size: 1rem;
   }
 }
