@@ -19,7 +19,7 @@ const singleDayForecast = (day) => {
   forecast.appendChild(weatherIcon);
 
   const precipitationChance = document.createElement('div');
-  precipitationChance.classList.add('bold', 'ht-1');
+  precipitationChance.classList.add('bold', 'ht-1', 'blue');
   precipitationChance.textContent = day.pop === 0 ? '' : `${Math.round(day.pop * 100)}%`;
   forecast.appendChild(precipitationChance);
 
@@ -38,6 +38,24 @@ const singleDayForecast = (day) => {
 
 const dailyForecastHeaders = () => {
   const headers = document.createElement('div');
+  headers.classList.add('align-center', 'single-day-wrapper');
+
+  const day = document.createElement('p');
+  day.textContent = 'Day';
+
+  const weather = document.createElement('p');
+  weather.textContent = 'Weather';
+
+  const precipitation = document.createElement('p');
+  precipitation.textContent = 'Precipitation';
+
+  const temperature = document.createElement('p');
+  temperature.textContent = 'Temperature';
+
+  headers.appendChild(day);
+  headers.appendChild(weather);
+  headers.appendChild(precipitation);
+  headers.appendChild(temperature);
   return headers;
 };
 

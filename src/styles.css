@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+section,
+header {
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header {
   position: sticky;
   top: 0;
@@ -33,6 +46,10 @@ header > button,
 .search-bar > button {
   padding: 0 0.75rem;
   font-weight: 500;
+}
+
+.content {
+  width: 100%;
 }
 
 .flex {
@@ -102,11 +119,6 @@ h1,
 
 .hourly-icon {
   height: 3rem;
-}
-
-body,
-.content {
-  width: min(100%, 800px);
 }
 
 .above {
