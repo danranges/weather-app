@@ -45,6 +45,7 @@ export default class UI {
   static async createBody() {
     const { location } = Storage.getSettings();
     const weather = await Data.fetchWeather(location);
+    console.log(weather);
 
     const content = document.createElement('section');
     content.classList.add('flex', 'col', 'content', 'align-center');

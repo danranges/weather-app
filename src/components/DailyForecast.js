@@ -13,10 +13,20 @@ const singleDayForecast = (day) => {
   dayName.textContent = format(toDate(day.dt * 1000), 'eeee');
   forecast.appendChild(dayName);
 
+  const weather = document.createElement('div');
+  weather.classList.add('flex', 'align-center');
+
   const weatherIcon = new Image();
   weatherIcon.classList.add('hourly-icon');
   weatherIcon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
-  forecast.appendChild(weatherIcon);
+  weather.appendChild(weatherIcon);
+
+  const weatherDesc = document.createElement('p');
+  weatherDesc.classList.add('daily-weather-desc');
+  weatherDesc.textContent = day.weather[0].main;
+  weather.appendChild(weatherDesc);
+
+  forecast.appendChild(weather);
 
   const precipitationChance = document.createElement('div');
   precipitationChance.classList.add('bold', 'ht-1', 'blue');
@@ -44,6 +54,7 @@ const dailyForecastHeaders = () => {
   day.textContent = 'Day';
 
   const weather = document.createElement('p');
+  weather.classList.add('header-daily-weather');
   weather.textContent = 'Weather';
 
   const precipitation = document.createElement('p');
