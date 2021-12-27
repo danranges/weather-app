@@ -9,17 +9,17 @@ const singleDayForecast = (day) => {
   const forecast = document.createElement('div');
   forecast.classList.add('align-center', 'single-day-wrapper');
 
+  const weatherIcon = new Image();
+  weatherIcon.classList.add('hourly-icon');
+  weatherIcon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
+  forecast.appendChild(weatherIcon);
+
   const dayName = document.createElement('div');
   dayName.textContent = format(toDate(day.dt * 1000), 'eeee');
   forecast.appendChild(dayName);
 
   const weather = document.createElement('div');
-  weather.classList.add('flex', 'align-center');
-
-  const weatherIcon = new Image();
-  weatherIcon.classList.add('hourly-icon');
-  weatherIcon.src = `http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png`;
-  weather.appendChild(weatherIcon);
+  weather.classList.add('flex', 'align-center', 'daily-weather-desc');
 
   const weatherDesc = document.createElement('p');
   weatherDesc.classList.add('daily-weather-desc');
@@ -50,11 +50,14 @@ const dailyForecastHeaders = () => {
   const headers = document.createElement('div');
   headers.classList.add('align-center', 'single-day-wrapper');
 
+  const conditions = document.createElement('p');
+  conditions.textContent = '';
+
   const day = document.createElement('p');
   day.textContent = 'Day';
 
   const weather = document.createElement('p');
-  weather.classList.add('header-daily-weather');
+  weather.classList.add('daily-weather-desc');
   weather.textContent = 'Weather';
 
   const precipitation = document.createElement('p');
@@ -63,6 +66,7 @@ const dailyForecastHeaders = () => {
   const temperature = document.createElement('p');
   temperature.textContent = 'Temperature';
 
+  headers.appendChild(conditions);
   headers.appendChild(day);
   headers.appendChild(weather);
   headers.appendChild(precipitation);

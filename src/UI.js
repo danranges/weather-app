@@ -11,6 +11,9 @@ export default class UI {
     const header = document.createElement('header');
     header.classList.add('flex');
 
+    const controls = document.createElement('div');
+    controls.classList.add('flex', 'header-controls');
+
     const searchBar = document.createElement('div');
     searchBar.classList.add('search-bar');
 
@@ -26,8 +29,10 @@ export default class UI {
     searchBar.appendChild(searchInput);
     searchBar.appendChild(btnSubmit);
 
-    header.appendChild(searchBar);
-    header.appendChild(btnUnits);
+    controls.appendChild(searchBar);
+    controls.appendChild(btnUnits);
+
+    header.appendChild(controls);
 
     btnSubmit.addEventListener('click', async () => {
       Storage.setLocation(searchInput.value);
