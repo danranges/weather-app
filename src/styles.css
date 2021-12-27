@@ -129,6 +129,7 @@ h1,
 .content {
   max-width: 900px;
 }
+
 .header-controls {
   max-width: 800px;
 }
@@ -141,7 +142,7 @@ h1,
 .above {
   max-width: 85%;
   gap: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 0;
   /* overflow-x: scroll; */
   align-items: center;
   flex-direction: column;
@@ -188,10 +189,6 @@ h1,
   .single-day-wrapper {
     display: grid;
     grid-template-columns: 6rem repeat(4, 1fr);
-  }
-
-  .header-daily-weather {
-    /* padding-left: 3rem; */
   }
 
   .daily-weather-desc {
